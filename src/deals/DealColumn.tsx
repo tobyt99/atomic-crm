@@ -15,7 +15,7 @@ export const DealColumn = ({
 }) => {
     const totalAmount = deals.reduce((sum, deal) => sum + deal.amount, 0);
 
-    const { dealStages } = useConfigurationContext();
+    const { dealStages, currency } = useConfigurationContext();
     return (
         <Box
             sx={{
@@ -42,10 +42,10 @@ export const DealColumn = ({
                     color="text.secondary"
                     fontSize="small"
                 >
-                    {totalAmount.toLocaleString('en-US', {
+                    {totalAmount.toLocaleString('en-GB', {
                         notation: 'compact',
                         style: 'currency',
-                        currency: 'USD',
+                        currency: currency,
                         currencyDisplay: 'narrowSymbol',
                         minimumSignificantDigits: 3,
                     })}

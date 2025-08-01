@@ -66,7 +66,7 @@ export const DealShow = ({ open, id }: { open: boolean; id?: string }) => {
 
 const CLOSE_TOP_WITH_ARCHIVED = 14;
 const DealShowContent = ({ handleClose }: { handleClose: () => void }) => {
-    const { dealStages } = useConfigurationContext();
+    const { dealStages, currency } = useConfigurationContext();
     const record = useRecordContext<Deal>();
     if (!record) return null;
 
@@ -165,10 +165,10 @@ const DealShowContent = ({ handleClose }: { handleClose: () => void }) => {
                                     Budget
                                 </Typography>
                                 <Typography variant="body2">
-                                    {record.amount.toLocaleString('en-US', {
+                                    {record.amount.toLocaleString('en-GB', {
                                         notation: 'compact',
                                         style: 'currency',
-                                        currency: 'USD',
+                                        currency: currency,
                                         currencyDisplay: 'narrowSymbol',
                                         minimumSignificantDigits: 3,
                                     })}

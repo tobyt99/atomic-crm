@@ -208,7 +208,7 @@ const CreateRelatedContactButton = () => {
 
 const DealsIterator = () => {
     const { data: deals, error, isPending } = useListContext<Deal>();
-    const { dealStages } = useConfigurationContext();
+    const { dealStages, currency } = useConfigurationContext();
     if (isPending || error) return null;
 
     const now = Date.now();
@@ -226,10 +226,10 @@ const DealsIterator = () => {
                                 secondary={
                                     <>
                                         {findDealLabel(dealStages, deal.stage)},{' '}
-                                        {deal.amount.toLocaleString('en-US', {
+                                        {deal.amount.toLocaleString('en-GB', {
                                             notation: 'compact',
                                             style: 'currency',
-                                            currency: 'USD',
+                                            currency: currency,
                                             currencyDisplay: 'narrowSymbol',
                                             minimumSignificantDigits: 3,
                                         })}

@@ -3,6 +3,7 @@ import { Box, Card, Typography } from '@mui/material';
 import { ReferenceField, useRedirect } from 'react-admin';
 import { CompanyAvatar } from '../companies/CompanyAvatar';
 import { Deal } from '../types';
+import { useConfigurationContext } from '../root/ConfigurationContext';
 
 export const DealCard = ({ deal, index }: { deal: Deal; index: number }) => {
     if (!deal) return null;
@@ -30,6 +31,7 @@ export const DealCardContent = ({
     deal: Deal;
 }) => {
     const redirect = useRedirect();
+    const { currency } = useConfigurationContext();
     const handleClick = () => {
         redirect(`/deals/${deal.id}/show`, undefined, undefined, undefined, {
             _scrollToTop: false,
@@ -65,10 +67,10 @@ export const DealCardContent = ({
                             {deal.name}
                         </Typography>
                         <Typography variant="caption" color="textSecondary">
-                            {deal.amount.toLocaleString('en-US', {
+                            {deal.amount.toLocaleString('en-GB', {
                                 notation: 'compact',
                                 style: 'currency',
-                                currency: 'USD',
+                                currency: currency,
                                 currencyDisplay: 'narrowSymbol',
                                 minimumSignificantDigits: 3,
                             })}

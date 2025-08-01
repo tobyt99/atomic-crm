@@ -2,6 +2,7 @@ import { createContext, ReactNode, useContext } from 'react';
 import {
     defaultCompanySectors,
     defaultContactGender,
+    defaultCurrency,
     defaultDealCategories,
     defaultDealPipelineStatuses,
     defaultDealStages,
@@ -23,6 +24,7 @@ export interface ConfigurationContextValue {
     title: string;
     logo: string;
     contactGender: ContactGender[];
+    currency: string;
 }
 
 export interface ConfigurationProviderProps extends ConfigurationContextValue {
@@ -40,6 +42,7 @@ export const ConfigurationContext = createContext<ConfigurationContextValue>({
     title: defaultTitle,
     logo: defaultLogo,
     contactGender: defaultContactGender,
+    currency: defaultCurrency,
 });
 
 export const ConfigurationProvider = ({

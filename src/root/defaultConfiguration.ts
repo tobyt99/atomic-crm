@@ -32,11 +32,13 @@ export const defaultDealStages = [
 export const defaultDealPipelineStatuses = ['won'];
 
 export const defaultDealCategories = [
-    'Other',
-    'Copywriting',
-    'Print project',
-    'UI Design',
-    'Website design',
+    'Broking',
+    'Solar PV install',
+    'Solar & batteries',
+    'Batteries only',
+    'EV Chargers only',
+    'Everything',
+    'Subscription',
 ];
 
 export const defaultNoteStatuses = [
@@ -63,3 +65,5 @@ export const defaultContactGender = [
     { value: 'female', label: 'She/Her', icon: Woman2Icon },
     { value: 'nonbinary', label: 'They/Them', icon: WcIcon },
 ];
+
+export const defaultCurrency = 'GBP';

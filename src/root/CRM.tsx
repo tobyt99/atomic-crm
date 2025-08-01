@@ -34,6 +34,7 @@ import {
 import {
     defaultCompanySectors,
     defaultContactGender,
+    defaultCurrency,
     defaultDealCategories,
     defaultDealPipelineStatuses,
     defaultDealStages,
@@ -117,6 +118,7 @@ const defaultLightTheme = deepmerge(defaultTheme, {
 export const CRM = ({
     contactGender = defaultContactGender,
     companySectors = defaultCompanySectors,
+    currency = defaultCurrency,
     darkTheme,
     dealCategories = defaultDealCategories,
     dealPipelineStatuses = defaultDealPipelineStatuses,
@@ -149,6 +151,7 @@ export const CRM = ({
         <ConfigurationProvider
             contactGender={contactGender}
             companySectors={companySectors}
+            currency={currency}
             dealCategories={dealCategories}
             dealPipelineStatuses={dealPipelineStatuses}
             dealStages={dealStages}

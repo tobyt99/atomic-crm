@@ -21,7 +21,7 @@ import { findDealLabel } from '../deals/deal';
 
 export const DealsPipeline = () => {
     const { identity } = useGetIdentity();
-    const { dealStages, dealPipelineStatuses } = useConfigurationContext();
+    const { dealStages, dealPipelineStatuses, currency } = useConfigurationContext();
     const { data, total, isPending } = useGetList<Deal>(
         'deals',
         {
@@ -71,10 +71,10 @@ export const DealsPipeline = () => {
                     isPending={isPending}
                     primaryText={deal => deal.name}
                     secondaryText={deal =>
-                        `${deal.amount.toLocaleString('en-US', {
+                        `${deal.amount.toLocaleString('en-GB', {
                             notation: 'compact',
                             style: 'currency',
-                            currency: 'USD',
+                            currency: currency,
                             currencyDisplay: 'narrowSymbol',
                             minimumSignificantDigits: 3,
                         })} , ${findDealLabel(dealStages, deal.stage)}`
