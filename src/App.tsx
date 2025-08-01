@@ -1,62 +1,105 @@
 import { CRM } from './root/CRM';
 import { radiantLightTheme, radiantDarkTheme } from 'react-admin';
-import { deepmerge } from '@mui/utils';
+import { createTheme } from '@mui/material/styles';
 
-/**
- * Application entry point
- *
- * Customize Atomic CRM by passing props to the CRM component:
- *  - contactGender
- *  - companySectors
- *  - darkTheme
- *  - dealCategories
- *  - dealPipelineStatuses
- *  - dealStages
- *  - lightTheme
- *  - logo
- *  - noteStatuses
- *  - taskTypes
- *  - title
- * ... as well as all the props accepted by react-admin's <Admin> component.
- *
- * @example
- *
- * const App = () => (
- *   <CRM
- *       logo="./img/logo.png"
- *       title="Elira"
- *       lightTheme={radiantLightTheme}
- *       darkTheme={radiantDarkTheme}
- *    />
- * );
- */
+// Vester colours
+const spaceCadet = '#2B2D42';      // Primary
+const vesterYellow = '#F3BA3C';    // Secondary
+const vesterLightBlue = '#98DFEA'; // Dark theme primary
+const vesterOffWhite = '#FDFBF8';  // Light theme background
+const white = '#ffffff';
+const black = '#000000';
 
-// Custom theme with modified primary and secondary colors
-const customLightTheme = deepmerge(radiantLightTheme, {
+// Custom Light Theme
+const customLightTheme = createTheme({
+  ...radiantLightTheme,
   palette: {
+    mode: 'light',
     primary: {
-      main: '#2B2D42', // Vester dark blue
+      main: spaceCadet,
+      contrastText: white,
     },
     secondary: {
-      main: '#F3BA3C', // Vester gold
+      main: vesterYellow,
+      contrastText: black,
+    },
+    background: {
+      default: vesterOffWhite,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+        containedPrimary: {
+          backgroundColor: spaceCadet,
+          color: white,
+          '&:hover': {
+            backgroundColor: '#1E2134',
+          },
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          backgroundColor: vesterYellow,
+          color: black,
+        },
+      },
     },
   },
 });
 
-const customDarkTheme = deepmerge(radiantDarkTheme, {
+// Custom Dark Theme
+const customDarkTheme = createTheme({
+  ...radiantDarkTheme,
   palette: {
+    mode: 'dark',
     primary: {
-      main: '#98DFEA', // Vester light blue
+      main: vesterLightBlue,
+      contrastText: spaceCadet,
     },
     secondary: {
-      main: '#F3BA3C', // Vester gold
+      main: vesterYellow,
+      contrastText: black,
+    },
+    background: {
+      default: spaceCadet,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+        containedPrimary: {
+          backgroundColor: vesterLightBlue,
+          color: spaceCadet,
+          '&:hover': {
+            backgroundColor: '#80cad9',
+          },
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          backgroundColor: vesterYellow,
+          color: black,
+        },
+      },
     },
   },
 });
 
+// Application wrapper
 const App = () => (
   <CRM
-    logo="./img/vester_logo_white.svg"
+    logo="./logos/vester_logo_white.svg"
     title="Elira"
     lightTheme={customLightTheme}
     darkTheme={customDarkTheme}
