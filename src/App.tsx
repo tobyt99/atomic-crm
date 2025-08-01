@@ -1,4 +1,5 @@
 import { CRM } from './root/CRM';
+import { radiantLightTheme, radiantDarkTheme } from 'react-admin';
 
 /**
  * Application entry point
@@ -18,13 +19,16 @@ import { CRM } from './root/CRM';
  * ... as well as all the props accepted by react-admin's <Admin> component.
  *
  * @example
- * const App = () => (
- *    <CRM
- *       logo="./img/logo.png"
- *       title="Acme CRM"
- *    />
- * );
- */
+ *
+  const App = () => (
+     <CRM
+*        logo="./img/logo.png"
+        title="Elira"
+        lightTheme={radiantLightTheme}
+        darkTheme={radiantDarkTheme}
+     />
+  );
+ /
 const App = () => <CRM />;
 
 export default App;
