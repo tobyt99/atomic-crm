@@ -22,13 +22,20 @@ import { radiantLightTheme, radiantDarkTheme } from 'react-admin';
  *
   const App = () => (
      <CRM
-*        logo="./img/logo.png"
+        logo="./img/logo.png"
         title="Elira"
         lightTheme={radiantLightTheme}
         darkTheme={radiantDarkTheme}
      />
   );
- /
-const App = () => <CRM />;
+ */
+
+const App = () => (
+    <CRM
+        title="Elira"
+        lightTheme={radiantLightTheme}
+        darkTheme={radiantDarkTheme}
+    />
+);
 
 export default App;
