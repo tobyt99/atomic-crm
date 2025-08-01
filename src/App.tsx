@@ -31,11 +31,14 @@ import { deepmerge } from '@mui/utils';
  * );
  */
 
-// Custom theme with modified primary color
+// Custom theme with modified primary and secondary colors
 const customLightTheme = deepmerge(radiantLightTheme, {
   palette: {
     primary: {
       main: '#2B2D42', // Vester dark blue
+    },
+    secondary: {
+      main: '#F3BA3C', // Vester gold
     },
   },
 });
@@ -45,12 +48,15 @@ const customDarkTheme = deepmerge(radiantDarkTheme, {
     primary: {
       main: '#98DFEA', // Vester light blue
     },
+    secondary: {
+      main: '#F3BA3C', // Vester gold
+    },
   },
 });
 
 const App = () => (
   <CRM
-    logo="./img/vester_logo_white.png"
+    logo="./img/vester_logo_white.svg"
     title="Elira"
     lightTheme={customLightTheme}
     darkTheme={customDarkTheme}
