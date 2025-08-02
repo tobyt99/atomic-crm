@@ -48,6 +48,7 @@ export const ConfigurationContext = createContext<ConfigurationContextValue>({
 export const ConfigurationProvider = ({
     children,
     companySectors,
+    currency,
     dealCategories,
     dealPipelineStatuses,
     dealStages,
@@ -60,6 +61,7 @@ export const ConfigurationProvider = ({
     <ConfigurationContext.Provider
         value={{
             companySectors,
+            currency,
             dealCategories,
             dealPipelineStatuses,
             dealStages,
