@@ -42,7 +42,7 @@ async function updateSaleAvatar(user_id: string, avatar: string) {
 }
 
 async function inviteUser(req: Request, currentUserSale: any) {
-    const { email, password, first_name, last_name, disabled, administrator } =
+    const { email, first_name, last_name, disabled, administrator } =
         await req.json();
 
     if (!currentUserSale.administrator) {
@@ -52,7 +52,6 @@ async function inviteUser(req: Request, currentUserSale: any) {
     const { data, error: userError } =
         await supabaseAdmin.auth.admin.createUser({
             email,
-            password,
             user_metadata: { first_name, last_name },
         });
 
