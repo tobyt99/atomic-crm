@@ -21,6 +21,7 @@ import { Dashboard } from '../dashboard/Dashboard';
 import deals from '../deals';
 import { LoginPage } from '../login/LoginPage';
 import { SignupPage } from '../login/SignupPage';
+import { AuthCallback } from '../login/AuthCallback';
 import {
     authProvider as defaultAuthProvider,
     dataProvider as defaultDataProvider,
@@ -176,6 +177,7 @@ export const CRM = ({
             >
                 <CustomRoutes noLayout>
                     <Route path={SignupPage.path} element={<SignupPage />} />
+                    <Route path={AuthCallback.path} element={<AuthCallback />} />
                     <Route
                         path={SetPasswordPage.path}
                         element={<SetPasswordPage />}
