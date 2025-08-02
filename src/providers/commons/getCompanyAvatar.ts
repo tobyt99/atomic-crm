@@ -6,11 +6,18 @@ async function getFaviconUrl(website: string): Promise<string | null> {
     try {
         // get favicon from domain
         const url = new URL(website);
-        const domain = url.origin;
-        const faviconUrl = `${domain}/favicon.ico`;
+        const domain = url.hostname;
+        const origin = url.origin;
+        const faviconUrl = `${origin}/favicon.ico`;
         const response = await fetchWithTimeout(faviconUrl);
         if (response.ok) {
             return faviconUrl;
+        }
+        // Fallback: Try Clearbit logo
+        const clearbitUrl = `https://logo.clearbit.com/${domain}`;
+        const clearbitResponse = await fetchWithTimeout(clearbitUrl);
+        if (clearbitResponse.ok) {
+            return clearbitUrl;
         }
     } catch (error) {
         return null;

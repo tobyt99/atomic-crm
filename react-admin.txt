@@ -1,0 +1,23 @@
+# React-Admin Overview
+
+React-Admin is a frontend framework for building admin interfaces on top of REST/GraphQL/Custom backends. It uses MUI for UI components and is highly extensible.
+
+## Key Concepts
+
+- `Admin`: The root component
+- `Resource`: Declares data entities like `users`, `posts`
+- `List`, `Edit`, `Create`, `Show`: CRUD views for resources
+- `Datagrid`, `SimpleForm`, `TextInput`, `SelectInput`: MUI-based input components
+- `useDataProvider`, `useNotify`, `useRedirect`: React hooks to integrate backend/data workflows
+- Themeing is handled with `@mui/material/styles`
+- Authentication/authorization is plug-and-play using custom `authProvider`
+
+## Styling
+
+React-Admin themes are MUI themes. You can override global styles, fonts, colors, and component overrides through the theme passed into `<Admin>`.
+
+## Layout
+
+Custom layouts extend `Layout`, `AppBar`, `Menu`, `Dashboard` and are configurable.
+
+[More Info](https://marmelab.com/react-admin/)
